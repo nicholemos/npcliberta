@@ -1,0 +1,135 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    font-size: 2rem;
+    color: #007bff; /* Usando a cor primária do Bootstrap */
+}
+
+button {
+    margin-top: 10px;
+    padding: 12px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+.person {
+    width: 100%;
+    max-width: 320px;
+    margin-bottom: 1000px;
+    text-align: center;
+    border: 2px solid #ddd;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.person:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.control-btn {
+    font-size: 3.5rem;
+    cursor: pointer;
+    user-select: none;
+    transition: color 0.3s;
+}
+
+.control-btn:hover {
+    color: #007bff;
+}
+
+.progress {
+    justify-content: space-evenly; /* Espaço entre os corações */
+    gap: 5px; /* Ajuste do espaço entre os corações */
+}
+
+.heart {
+    font-size: 2rem; /* Tamanho maior dos corações */
+    color: #ccc; /* Cor do coração vazio */
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.heart.filled {
+    color: red; /* Cor do coração preenchido */
+}
+
+.heart.fas {
+    color: red; /* Garantindo que o coração preenchido tenha a cor vermelha */
+}
+
+.result {
+    margin-top: 120px;
+    text-align: center;
+}
+
+.control-btn.remove-btn {
+    padding: 5px 10px;
+    font-size: 1rem;
+    background-color: #f44336;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+.control-btn.remove-btn:hover {
+    background-color: #d32f2f;
+}
+
+/* Containers dos jogadores */
+#players {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between; /* Garante espaçamento entre os itens */
+}
+
+#players .person {
+    flex: 1 1 calc(25% - 20px); /* 4 por linha em telas grandes */
+}
+
+/* Ajustes para telas médias (tablets e dispositivos com menos de 1200px de largura) */
+@media (max-width: 1024px) {
+    #players .person {
+        flex: 1 1 calc(50% - 20px); /* 2 jogadores por linha em telas menores */
+    }
+}
+
+/* Ajustes para telas pequenas (smartphones com largura menor que 768px) */
+@media (max-width: 768px) {
+    #players .person {
+        flex: 1 1 calc(50% - 20px); /* Ajuste para 2 jogadores por linha em telas menores */
+    }
+}
+
+/* Ajustes para telas muito pequenas (smartphones com largura menor que 480px) */
+@media (max-width: 480px) {
+    #players .person {
+        flex: 1 1 100%; /* Ajuste para 1 jogador por linha em telas pequenas */
+    }
+}
