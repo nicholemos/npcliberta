@@ -1,136 +1,163 @@
-let playerCount = 0;  // Contador de jogadores
-
-// Função para criar um novo jogador
-function createPlayer(playerName) {
-    const playerContainer = document.createElement('div');
-    playerContainer.classList.add('player');
-    playerContainer.id = `player${playerCount}`;
-
-    const playerTitle = document.createElement('h2');
-    playerTitle.innerText = playerName;
-
-    // Lista de NPCs desse jogador
-    const npcList = document.createElement('div');
-    npcList.classList.add('npc-list');
-    playerContainer.appendChild(playerTitle);
-    playerContainer.appendChild(npcList);
-
-    // Botões para adicionar NPCs
-    const addNpcButton = document.createElement('button');
-    addNpcButton.innerText = 'Adicionar NPC';
-    addNpcButton.addEventListener('click', () => createNpc(playerContainer, npcList));
-
-    playerContainer.appendChild(addNpcButton);
-
-    document.getElementById('player-list').appendChild(playerContainer);
-
-    playerCount++;
+/* style.css */
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f8ff;
+    flex-direction: column;
 }
 
-// Função para criar um NPC para o jogador
-function createNpc(playerContainer, npcList) {
-    const npcContainer = document.createElement('div');
-    npcContainer.classList.add('npc');
-    
-    // Campo para o nome do NPC
-    const nameInput = document.createElement('input');
-    nameInput.type = 'text';
-    nameInput.placeholder = 'Nome do NPC';
-
-    // Criando os corações
-    const heartsContainer = document.createElement('div');
-    heartsContainer.classList.add('hearts');
-    const hearts = [];
-    for (let i = 0; i < 7; i++) {
-        const heart = document.createElement('span');
-        heart.classList.add('heart');
-        heart.innerText = '❤️';
-        hearts.push(heart);
-        heartsContainer.appendChild(heart);
-    }
-
-    // Botões para controlar os corações
-    const controls = document.createElement('div');
-    controls.classList.add('controls');
-    
-    const minusButton = document.createElement('button');
-    minusButton.innerText = '-';
-    const plusButton = document.createElement('button');
-    plusButton.innerText = '+';
-
-    controls.appendChild(minusButton);
-    controls.appendChild(plusButton);
-
-    let currentHearts = 0;  // Contagem de corações do NPC
-
-    // Atualiza a visibilidade dos corações
-    // Atualiza a visibilidade dos corações
-function updateHearts() {
-    hearts.forEach((heart, index) => {
-        if (index < currentHearts) {
-            heart.classList.add('active');  // Adiciona a classe 'active' para corações preenchidos
-        } else {
-            heart.classList.remove('active');  // Remove a classe 'active' para corações vazios
-        }
-    });
+.container {
+    text-align: center;
+    width: 100%;
 }
 
-  // Lógica para os botões de controle de corações
-    minusButton.addEventListener('click', () => {
-        if (currentHearts > 0) {
-            currentHearts--;
-        }
-        updateHearts();
-    });
-
-    plusButton.addEventListener('click', () => {
-        if (currentHearts < hearts.length) {
-            currentHearts++;
-        }
-        updateHearts();
-    });
-
-    updateHearts();
-
-    // Botão para remover o NPC
-    const removeNpcButton = document.createElement('button');
-    removeNpcButton.innerText = 'Remover NPC';
-    removeNpcButton.addEventListener('click', () => removeNpc(npcContainer));
-
-    // Adiciona os elementos ao NPC
-    npcContainer.appendChild(nameInput);
-    npcContainer.appendChild(heartsContainer);
-    npcContainer.appendChild(controls);
-    npcContainer.appendChild(removeNpcButton);  // Adiciona o botão de remover NPC
-
-    npcList.appendChild(npcContainer);
+h1 {
+    color: #333;
+    font-size: 2rem;
+    margin-bottom: 20px;
 }
 
-// Função para remover o NPC
-function removeNpc(npcContainer) {
-    npcContainer.remove();
+.player-form {
+    margin-bottom: 20px;
 }
 
-// Função para remover o jogador
-function removePlayer(playerContainer) {
-    playerCount--;
-    document.getElementById('player-list').removeChild(playerContainer);
+.player-form input {
+    font-size: 1.2rem;
+    padding: 5px;
+    margin-right: 10px;
+    text-align: center;
+    width: 200px;
+    border: 1px solid #ff6347;
+    border-radius: 5px;
 }
 
-// Lógica para adicionar um novo jogador
-document.getElementById('addPlayer').addEventListener('click', () => {
-    const playerName = document.getElementById('playerName').value;
-    if (playerName) {
-        createPlayer(playerName);
-        document.getElementById('playerName').value = ''; // Limpa o campo de nome
-    }
-});
+.player-form button {
+    font-size: 1.2rem;
+    padding: 5px 15px;
+    cursor: pointer;
+    border: none;
+    background-color: #ff6347;
+    color: white;
+    border-radius: 5px;
+}
 
-// Lógica para remover o jogador
-document.getElementById('removePlayer').addEventListener('click', () => {
-    const playerList = document.getElementById('player-list');
-    if (playerList.children.length > 0) {
-        const lastPlayer = playerList.lastElementChild;
-        removePlayer(lastPlayer);
-    }
-});
+.player-form button:hover {
+    background-color: #ff4500;
+}
+
+/* Player List Styling */
+#player-list {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap; /* Permite que as caixas se movam para a próxima linha */
+    justify-content: center; /* Centraliza as caixas */
+    gap: 20px; /* Espaçamento entre os jogadores */
+}
+
+.player {
+    margin: 15px;
+    padding: 20px;
+    border: 2px solid #ff6347;
+    border-radius: 10px;
+    width: 250px;
+    background-color: #fff5e6;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombrinha para dar mais destaque */
+    text-align: center;
+    transition: transform 0.2s ease;
+}
+
+.player:hover {
+    transform: scale(1.05); /* Aumenta um pouco a caixa quando o mouse passa em cima */
+}
+
+.npc-list {
+    margin-top: 15px;
+}
+
+.npc {
+    margin: 10px;
+    padding: 15px;
+    border: 2px solid #ff6347;
+    border-radius: 10px;
+    width: 220px;
+    background-color: #fff5e6;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombrinha para destacar o NPC */
+}
+
+.npc input {
+    font-size: 1.2rem;
+    padding: 5px;
+    margin-bottom: 10px;
+    text-align: center;
+    width: 100%;
+    border: 1px solid #ff6347;
+    border-radius: 5px;
+}
+
+/* Mudanças na aparência dos corações */
+.hearts {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.heart {
+    opacity: 0.2; /* Corações vazios são mais transparentes */
+    color: #808080; /* Cor cinza para os corações vazios */
+    transition: opacity 0.3s ease-in-out, color 0.3s ease-in-out; /* Transições suaves */
+}
+
+.heart.active {
+    opacity: 1; /* Corações preenchidos têm opacidade total */
+    color: #ff6347; /* Cor vermelha para os corações preenchidos */
+}
+
+.controls button {
+    font-size: 1.5rem;
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+    border: none;
+    background-color: #ff6347;
+    color: white;
+    border-radius: 5px;
+}
+
+.controls button:hover {
+    background-color: #ff4500;
+}
+
+/* Estilos do botão Remover Jogador (agora abaixo do nome) */
+.player button {
+    margin-top: 10px;
+}
+
+.controls button,
+.player-form button {
+    margin-top: 10px;
+}
+
+/* Estilos para os botões de Adicionar e Remover NPC */
+.npc button {
+    font-size: 1.2rem;
+    padding: 8px 16px;
+    margin: 5px;
+    cursor: pointer;
+    border: 1px solid #ff6347; /* Borda sutil para combinar com o esquema de cores */
+    background-color: #fff;  /* Fundo branco para um visual mais clean */
+    color: #ff6347;  /* Cor do texto para combinar com o esquema */
+    border-radius: 5px;  /* Bordas arredondadas */
+    transition: background-color 0.3s ease;  /* Transição suave para mudança de cor */
+}
+
+.npc button:hover {
+    background-color: #ff6347;  /* Fundo vermelho quando o mouse passar */
+    color: white;  /* Texto branco quando o mouse passar */
+}
+
+.npc button:active {
+    background-color: #ff4500;  /* Fundo mais intenso ao pressionar */
+}
