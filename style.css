@@ -1,163 +1,237 @@
-/* style.css */
+/* Estilização geral */
 body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    background-color: #f0f8ff;
-    flex-direction: column;
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #f0f8ff;
 }
 
+/* Container principal */
 .container {
-    text-align: center;
-    width: 100%;
+  text-align: center;
+  width: 90%;
+  max-width: 1200px;
 }
 
+/* Título */
 h1 {
-    color: #333;
-    font-size: 2rem;
-    margin-bottom: 20px;
+  color: #333;
+  font-size: 2rem;
+  margin-bottom: 20px;
 }
 
+/* Formulário de jogador */
 .player-form {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .player-form input {
-    font-size: 1.2rem;
-    padding: 5px;
-    margin-right: 10px;
-    text-align: center;
-    width: 200px;
-    border: 1px solid #ff6347;
-    border-radius: 5px;
+  font-size: 1.2rem;
+  padding: 5px;
+  margin-right: 10px;
+  width: 200px;
+  border: 1px solid #ff6347;
+  border-radius: 5px;
 }
 
 .player-form button {
-    font-size: 1.2rem;
-    padding: 5px 15px;
-    cursor: pointer;
-    border: none;
-    background-color: #ff6347;
-    color: white;
-    border-radius: 5px;
+  background: linear-gradient(45deg, #ff6347, #ff4500);
+  color: #fff;
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: transform 0.3s, background 0.3s;
 }
 
 .player-form button:hover {
-    background-color: #ff4500;
+  background: linear-gradient(45deg, #ff4500, #e63900);
+  transform: scale(1.05);
 }
 
-/* Player List Styling */
+/* Lista de jogadores */
 #player-list {
-    margin-top: 20px;
-    display: flex;
-    flex-wrap: wrap; /* Permite que as caixas se movam para a próxima linha */
-    justify-content: center; /* Centraliza as caixas */
-    gap: 20px; /* Espaçamento entre os jogadores */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 20px;
 }
 
 .player {
-    margin: 15px;
-    padding: 20px;
-    border: 2px solid #ff6347;
-    border-radius: 10px;
-    width: 250px;
-    background-color: #fff5e6;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombrinha para dar mais destaque */
-    text-align: center;
-    transition: transform 0.2s ease;
+  background-color: #fff5e6;
+  border: 2px solid #ff6347;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  width: 250px;
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.2s ease;
 }
 
 .player:hover {
-    transform: scale(1.05); /* Aumenta um pouco a caixa quando o mouse passa em cima */
+  transform: scale(1.05);
 }
 
-.npc-list {
-    margin-top: 15px;
-}
-
+/* NPCs */
 .npc {
-    margin: 10px;
-    padding: 15px;
-    border: 2px solid #ff6347;
-    border-radius: 10px;
-    width: 220px;
-    background-color: #fff5e6;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombrinha para destacar o NPC */
+  background-color: #fff5e6;
+  border: 2px solid #ff6347;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  width: 220px;
+  padding: 15px;
+  margin: 10px auto;
 }
 
-.npc input {
-    font-size: 1.2rem;
-    padding: 5px;
-    margin-bottom: 10px;
-    text-align: center;
-    width: 100%;
-    border: 1px solid #ff6347;
-    border-radius: 5px;
-}
-
-/* Mudanças na aparência dos corações */
-.hearts {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
-}
-
-.heart {
-    opacity: 0.2; /* Corações vazios são mais transparentes */
-    color: #808080; /* Cor cinza para os corações vazios */
-    transition: opacity 0.3s ease-in-out, color 0.3s ease-in-out; /* Transições suaves */
-}
-
-.heart.active {
-    opacity: 1; /* Corações preenchidos têm opacidade total */
-    color: #ff6347; /* Cor vermelha para os corações preenchidos */
-}
-
-.controls button {
-    font-size: 1.5rem;
-    padding: 10px 20px;
-    margin: 5px;
-    cursor: pointer;
-    border: none;
-    background-color: #ff6347;
-    color: white;
-    border-radius: 5px;
-}
-
-.controls button:hover {
-    background-color: #ff4500;
-}
-
-/* Estilos do botão Remover Jogador (agora abaixo do nome) */
-.player button {
-    margin-top: 10px;
-}
-
-.controls button,
-.player-form button {
-    margin-top: 10px;
-}
-
-/* Estilos para os botões de Adicionar e Remover NPC */
+/* Botões em NPCs */
 .npc button {
-    font-size: 1.2rem;
-    padding: 8px 16px;
-    margin: 5px;
-    cursor: pointer;
-    border: 1px solid #ff6347; /* Borda sutil para combinar com o esquema de cores */
-    background-color: #fff;  /* Fundo branco para um visual mais clean */
-    color: #ff6347;  /* Cor do texto para combinar com o esquema */
-    border-radius: 5px;  /* Bordas arredondadas */
-    transition: background-color 0.3s ease;  /* Transição suave para mudança de cor */
+  margin: 5px;
+  background: linear-gradient(45deg, #ff6347, #ff4500);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 16px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: transform 0.3s, background 0.3s;
 }
 
 .npc button:hover {
-    background-color: #ff6347;  /* Fundo vermelho quando o mouse passar */
-    color: white;  /* Texto branco quando o mouse passar */
+  background: linear-gradient(45deg, #ff4500, #e63900);
+  transform: scale(1.05);
 }
 
-.npc button:active {
-    background-color: #ff4500;  /* Fundo mais intenso ao pressionar */
+.npc .remove-npc {
+  background: linear-gradient(45deg, #ddd, #bbb);
+  color: #333;
+  border: 1px solid #888;
+}
+
+.npc .remove-npc:hover {
+  background: linear-gradient(45deg, #bbb, #999);
+}
+
+/* Corações */
+.hearts {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.heart {
+  opacity: 0.2;
+  transition: color 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  color: #ccc; /* Coração vazio em cinza */
+}
+
+.heart.active {
+  opacity: 1;
+  color: #ff6347; /* Coração ativo em vermelho */
+}
+
+/* Botões de afinidade (+ e -) */
+.controls button {
+  background: linear-gradient(45deg, #4caf50, #388e3c);
+  color: #fff;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 1.5rem;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s, background 0.3s;
+}
+
+.controls button:hover {
+  background: linear-gradient(45deg, #388e3c, #2e7d32);
+  transform: scale(1.1);
+}
+
+#removePlayer {
+  background: linear-gradient(e53935); /* Tons de vermelho intensos */
+  font-size: 1.4rem;
+  font-weight: bold;
+  padding: 2px 25px;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  width: 23%;
+  display: block;
+  margin: 0 auto; /* Centraliza o botão */
+}
+
+#removePlayer:hover {
+  background: linear-gradient(45deg, #d32f2f, #9a0007);
+  transform: translateY(-2px);
+  box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Área de salvar e carregar */
+.save-load {
+  margin-top: 20px;
+}
+
+/* Container de salvar e carregar */
+.save-load {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+/* Botão Salvar Dados */
+#saveData {
+  background: linear-gradient(45deg, #4caf50, #388e3c);
+  color: #fff;
+  font-size: 1.2rem;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+#saveData:hover {
+  background: linear-gradient(45deg, #388e3c, #2e7d32);
+  transform: scale(1.05);
+}
+
+/* Estilizando o input file */
+#loadData {
+  font-size: 1rem;
+  padding: 10px;
+  border: 2px solid #ff6347;
+  border-radius: 8px;
+  background-color: #fff5e6;
+  cursor: pointer;
+  transition: border 0.3s ease-in-out;
+}
+
+#loadData:hover {
+  border: 2px solid #ff4500;
+}
+
+
+/* Botão customizado para carregar dados (label) */
+.upload-label {
+  background: linear-gradient(45deg, #ff6347, #ff4500);
+  color: #fff;
+  font-size: 1.2rem;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.upload-label:hover {
+  background: linear-gradient(45deg, #ff4500, #e63900);
+  transform: scale(1.05);
 }
