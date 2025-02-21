@@ -15,7 +15,10 @@ body {
   text-align: center;
   width: 90%;
   max-width: 1200px;
+  margin-top: 250px; /* Aumente esse valor se o header fixo for maior */
+  padding: 20px 0;
 }
+
 
 /* Título */
 h1 {
