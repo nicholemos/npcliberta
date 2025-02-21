@@ -1,1 +1,26 @@
+<body>
+  <div class="fixed-header">
+    <h1>Progresso com NPCs</h1>
+    <!-- Formulário para adicionar jogador -->
+    <div class="player-form">
+      <input type="text" id="playerName" placeholder="Digite o nome do jogador">
+      <button id="addPlayer">Adicionar Jogador</button>
+      <!-- Área para salvar e carregar os dados -->
+      <div class="save-load">
+        <button id="saveData">Salvar Dados</button>
+        <input type="file" id="loadData" accept=".txt">
+      </div>
+    </div>
+  </div>
 
+  <div class="container">
+    <!-- Lista de jogadores -->
+    <div id="player-list"></div>
+    <!-- Botão para remover o último jogador -->
+    <div class="controls">
+      <button id="removePlayer">Remover Jogador</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
