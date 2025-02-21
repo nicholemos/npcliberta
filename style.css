@@ -1,21 +1,30 @@
 /* Estilização geral */
 body {
   font-family: Arial, sans-serif;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
   margin: 0;
   background-color: #f0f8ff;
+  min-height: 150vh; /* Garante que a tela tenha pelo menos a altura da viewport */
 }
 
-/* Container principal */
+/* Header fixo (contém o título e o formulário de adicionar jogador) */
+.fixed-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #f0f8ff;
+  padding: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  text-align: center;
+}
+
+/* Container principal (conteúdo abaixo do header fixo) */
 .container {
   text-align: center;
   width: 90%;
   max-width: 1200px;
-  margin-top: 250px; /* Aumente esse valor se o header fixo for maior */
+  margin-top: 200px; /* Aumente esse valor se o header fixo for maior */
   padding: 20px 0;
 }
 
@@ -29,7 +38,7 @@ h1 {
 
 /* Formulário de jogador */
 .player-form {
-  margin-bottom: 20px;
+  margin-bottom: 1px;
 }
 
 .player-form input {
@@ -44,7 +53,7 @@ h1 {
 .player-form button {
   background: linear-gradient(45deg, #ff6347, #ff4500);
   color: #fff;
-  box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
   border: none;
   border-radius: 8px;
   padding: 10px 20px;
@@ -70,7 +79,7 @@ h1 {
   background-color: #fff5e6;
   border: 2px solid #ff6347;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   width: 250px;
   padding: 20px;
   text-align: center;
@@ -86,13 +95,13 @@ h1 {
   background-color: #fff5e6;
   border: 2px solid #ff6347;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   width: 220px;
   padding: 15px;
   margin: 10px auto;
 }
 
-/* Botões em NPCs */
+/* Botões dentro dos NPCs */
 .npc button {
   margin: 5px;
   background: linear-gradient(45deg, #ff6347, #ff4500);
@@ -110,6 +119,7 @@ h1 {
   transform: scale(1.05);
 }
 
+/* Botão Remover NPC (dentro de cada NPC) */
 .npc .remove-npc {
   background: linear-gradient(45deg, #ddd, #bbb);
   color: #333;
@@ -155,32 +165,28 @@ h1 {
   transform: scale(1.1);
 }
 
+/* Botão Remover Jogador */
 #removePlayer {
-  background: linear-gradient(e53935); /* Tons de vermelho intensos */
+  background: linear-gradient(45deg, #e53935, #b71c1c);
+  color: #fff;
   font-size: 1.4rem;
   font-weight: bold;
-  padding: 2px 25px;
+  padding: 15px 25px;
   border: none;
   border-radius: 8px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
-  transition: all 0.3s ease;
-  width: 23%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  width: 250px;
   display: block;
-  margin: 0 auto; /* Centraliza o botão */
+  margin: 0 auto;
+  text-align: center;
 }
-
 #removePlayer:hover {
   background: linear-gradient(45deg, #d32f2f, #9a0007);
   transform: translateY(-2px);
-  box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
 }
 
 /* Área de salvar e carregar */
-.save-load {
-  margin-top: 20px;
-}
-
-/* Container de salvar e carregar */
 .save-load {
   display: flex;
   align-items: center;
@@ -193,20 +199,13 @@ h1 {
 #saveData {
   background: linear-gradient(45deg, #4caf50, #388e3c);
   color: #fff;
-  font-size: 1.2rem;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: transform 0.3s ease, background 0.3s ease;
 }
-
 #saveData:hover {
   background: linear-gradient(45deg, #388e3c, #2e7d32);
   transform: scale(1.05);
 }
 
-/* Estilizando o input file */
+/* Estilização do input file */
 #loadData {
   font-size: 1rem;
   padding: 10px;
@@ -216,25 +215,22 @@ h1 {
   cursor: pointer;
   transition: border 0.3s ease-in-out;
 }
-
 #loadData:hover {
   border: 2px solid #ff4500;
 }
 
-
-/* Botão customizado para carregar dados (label) */
-.upload-label {
-  background: linear-gradient(45deg, #ff6347, #ff4500);
+.add-image-btn {
+  background: linear-gradient(45deg, #2196F3, #1976D2);
   color: #fff;
-  font-size: 1.2rem;
-  padding: 10px 20px;
   border: none;
-  border-radius: 8px;
+  border-radius: 5px;
+  padding: 8px 16px;
+  margin-top: 10px;
   cursor: pointer;
   transition: transform 0.3s ease, background 0.3s ease;
 }
 
-.upload-label:hover {
-  background: linear-gradient(45deg, #ff4500, #e63900);
+.add-image-btn:hover {
+  background: linear-gradient(45deg, #1976D2, #1565C0);
   transform: scale(1.05);
 }
