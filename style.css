@@ -69,9 +69,8 @@ h1 {
 
 /* Lista de jogadores */
 #player-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Define 4 colunas iguais */
   gap: 20px;
   margin-bottom: 20px;
 }
