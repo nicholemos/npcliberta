@@ -237,3 +237,8 @@ h1 {
   background: linear-gradient(45deg, #1976D2, #1565C0);
   transform: scale(1.05);
 }
+
+.player.selected {
+  border: 2px solid red;
+  background-color: #ffeaea;
+}
