@@ -1,4 +1,3 @@
-
 /* Estilização geral */
 body {
   font-family: Arial, sans-serif;
@@ -14,10 +13,21 @@ body {
   left: 0;
   width: 100%;
   background-color: #f0f8ff;
-  padding: 15px;
+  padding: 15px 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   z-index: 1000;
   text-align: center;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.fixed-header > * {
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 /* Container principal (conteúdo abaixo do header fixo) */
@@ -27,8 +37,9 @@ body {
   max-width: 1200px;
   margin-top: 200px; /* Aumente esse valor se o header fixo for maior */
   padding: 20px 0;
+  margin-left: auto;
+  margin-right: auto;
 }
-
 
 /* Título */
 h1 {
@@ -39,14 +50,18 @@ h1 {
 
 /* Formulário de jogador */
 .player-form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
   margin-bottom: 1px;
 }
 
 .player-form input {
   font-size: 1.2rem;
   padding: 5px;
-  margin-right: 10px;
-  width: 200px;
+  width: 100%;
+  max-width: 250px;
   border: 1px solid #ff6347;
   border-radius: 5px;
 }
@@ -60,6 +75,8 @@ h1 {
   padding: 10px 20px;
   cursor: pointer;
   transition: transform 0.3s, background 0.3s;
+  width: 100%;
+  max-width: 150px;
 }
 
 .player-form button:hover {
@@ -70,10 +87,10 @@ h1 {
 /* Lista de jogadores */
 #player-list {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* Define 4 colunas iguais */
+  grid-template-columns: repeat(4, 1fr);
   gap: 20px;
   margin-bottom: 20px;
-  justify-content: center; 
+  justify-content: center;
 }
 
 .player {
@@ -120,7 +137,7 @@ h1 {
   transform: scale(1.05);
 }
 
-/* Botão Remover NPC (dentro de cada NPC) */
+/* Botão Remover NPC */
 .npc .remove-npc {
   background: linear-gradient(45deg, #ddd, #bbb);
   color: #333;
@@ -142,15 +159,15 @@ h1 {
 .heart {
   opacity: 0.2;
   transition: color 0.3s ease-in-out, opacity 0.3s ease-in-out;
-  color: #ccc; /* Coração vazio em cinza */
+  color: #ccc;
 }
 
 .heart.active {
   opacity: 1;
-  color: #ff6347; /* Coração ativo em vermelho */
+  color: #ff6347;
 }
 
-/* Botões de afinidade (+ e -) */
+/* Botões de afinidade */
 .controls button {
   background: linear-gradient(45deg, #4caf50, #388e3c);
   color: #fff;
@@ -183,6 +200,7 @@ h1 {
   margin: 0 auto;
   text-align: center;
 }
+
 #removePlayer:hover {
   background: linear-gradient(45deg, #d32f2f, #9a0007);
   transform: translateY(-2px);
